@@ -153,7 +153,7 @@ $(document).ready(function() {
 
         
         
-        clearInterval(interValID);
+        //clearInterval(interValID);
 
         checkEnd();
 
@@ -167,8 +167,8 @@ $(document).ready(function() {
         $("#resultsIncorrect").show();
         $("#resultsIncorrect").html("# of Incorrect Answers = " + 
             wrongAnswer)
-        $("#resultsTimedOut").show();
-        $("#resultsTimedOut").html("# of Timed Out = " + timeOutAnswer );
+        //$("#resultsTimedOut").show();
+        //$("#resultsTimedOut").html("# of Timed Out = " + timeOutAnswer );
         $("#resultsTwo").show();
     }
 
