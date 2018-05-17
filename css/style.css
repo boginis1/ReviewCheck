@@ -83,7 +83,7 @@ padding: 10px;
 #response {
   display:none;
   margin: 0 auto;
-  width:900px;
+  width:70%;
   padding: 10px 50px 50px 50px;
   border-radius: 70px;
   border: 2px solid #cbcbcb;
@@ -104,7 +104,20 @@ padding: 10px;
   margin-top: 5px;
   
 }
-
+#nextQuestion {
+  background-color: white;
+  border-radius: 30px;
+  text-align: center;
+  width:150px; 
+  height:40px;
+  font-size:20px;
+  margin:auto;
+  padding:20px;
+  color:#6B8E23;
+}
+#nextQuestion {
+  display: none;
+}
 #btn0, #btn1, #btn2, #btn3 {
   background-color: #CD853F;
   width:300px;

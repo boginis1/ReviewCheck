@@ -36,8 +36,9 @@ $(document).ready(function() {
         },
         {
             "question": "The initials AAPS stand for this which we should use when responding to prospect questions",
-            "answers": ["A - Acknowledge, Assure, Persuade, Substantiate", 
-            "B - Assure, Ask, Persuade, Sell", "C - Acknowledge, Ask, Present, Sell", "D - Ask, Acknowledge, Persuade, Substantiate"],
+            "answers": ["A - Acknowledge, Assure, Persuade, Substantiate",
+                "B - Assure, Ask, Persuade, Sell", "C - Acknowledge, Ask, Present, Sell", "D - Ask, Acknowledge, Persuade, Substantiate"
+            ],
             "correct": "A - Acknowledge, Assure, Persuade, Substantiate",
             "response": "Acknowledge, Assure, Persuade and Substantiate is the best practice in writing a compelling email response."
         },
@@ -71,31 +72,10 @@ $(document).ready(function() {
     var questionIndex = 0;
     var correctAnswer = 0;
     var wrongAnswer = 0;
-    
-
-    // //Timer program
-    // var interValID;
-    // var timeLeft = 30
-    // var counter = 0;
-    // var timer = $("#timer");
-
-    // function timeIt() {
-        
-    //     timer.html("<h2>You have " + (timeLeft - counter) + " seconds left</h2>");
-    //     if (counter == timeLeft) {
-    //         timer.html("<h2>Your time is up!</h2>");
-    //         clearInterval(interValID);
-    //         $("#response").show();
-    //         $("#response").html("You ran out of time. " + selection.response);
-    //         timeOutAnswer++;
-    //         checkEnd();
-    //     }
-    //     counter++
-    // }
 
 
     $("#startGame").click(function() {
-        //timer.html("<h2>Starting timer...</h2>")
+        
         getQuestion();
     });
 
@@ -107,14 +87,14 @@ $(document).ready(function() {
     }
 
     function getQuestion() {
-        //var a = 0;
-
         $("#startTheGame").hide();
         $("#startGame").hide();
         $("#response").hide();
         $(".grid").show();
+        $("#nextQuestion").hide();
         //interValID = setInterval(timeIt, 1000);
         selection = triviaQandA[questionIndex];
+        console.log(questionIndex);
         $("#question").html(selection.question);
         console.log(question);
 
@@ -129,17 +109,11 @@ $(document).ready(function() {
 
     $("button").click(function() {
         var choice = $(this).text();
-
-
-
         checkAnswer(choice);
 
     });
 
-
-
     function checkAnswer(choice) {
-
         if (choice === selection.correct) {
             correctAnswer++
             $("#response").show();
@@ -151,21 +125,22 @@ $(document).ready(function() {
             $("#response").html("Oops, you are incorrect! " + selection.response);
         }
 
-        
-        
         //clearInterval(interValID);
-
-        checkEnd();
-
-
+        $("#nextQuestion").show();
+       
     }
+ 
+        $("#nextQuestion").click(function() {
+            questionIndex++;
+            checkEnd();
+        });
 
     function showResults() {
         $(".grid").hide();
         $("#resultsCorrect").show();
-        $("#resultsCorrect").html("# of Correct Answers = " + correctAnswer) 
+        $("#resultsCorrect").html("# of Correct Answers = " + correctAnswer)
         $("#resultsIncorrect").show();
-        $("#resultsIncorrect").html("# of Incorrect Answers = " + 
+        $("#resultsIncorrect").html("# of Incorrect Answers = " +
             wrongAnswer)
         //$("#resultsTimedOut").show();
         //$("#resultsTimedOut").html("# of Timed Out = " + timeOutAnswer );
@@ -173,16 +148,16 @@ $(document).ready(function() {
     }
 
     function checkEnd() {
-            questionIndex++;
-            if (questionIndex === (triviaQandA.length)){
+        
 
-            setTimeout(showResults, 3000);
-            } else  {
-                counter=0;
-                
-                setTimeout(getQuestion, 5000);
 
-            }
+        if (questionIndex === (triviaQandA.length)) {
+            showResults();
+
+        } else {
+            getQuestion();
+        }
+
     }
 
 });
