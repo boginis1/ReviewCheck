@@ -68,7 +68,7 @@ padding: 10px;
   box-shadow: 0 10 45 5 #cbcbcb;
 
 }
-#resultsCorrect, #resultsIncorrect, #resultsTimedOut {
+#resultsCorrect, #resultsIncorrect, #resultsPercent {
   background-color: #CD853F;
   display:none;
   text-align: center;

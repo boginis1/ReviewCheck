@@ -2,6 +2,7 @@ $(document).ready(function() {
     // Handler for .ready() called.
 
     var selection;
+    
 
     var triviaQandA = [{
             "question": "Creating awareness or questioning the status quo is the strategy for which stage of the customer journey?",
@@ -72,8 +73,7 @@ $(document).ready(function() {
     var questionIndex = 0;
     var correctAnswer = 0;
     var wrongAnswer = 0;
-
-
+    
     $("#startGame").click(function() {
         
         getQuestion();
@@ -135,13 +135,21 @@ $(document).ready(function() {
             checkEnd();
         });
 
+
+
     function showResults() {
+        var percentScore = (correctAnswer/triviaQandA.length)*100
+    
+
         $(".grid").hide();
         $("#resultsCorrect").show();
         $("#resultsCorrect").html("# of Correct Answers = " + correctAnswer)
         $("#resultsIncorrect").show();
         $("#resultsIncorrect").html("# of Incorrect Answers = " +
             wrongAnswer)
+        $("#resultsPercent").show();
+        $("#resultsPercent").html("Your score is " + percentScore + "%")
+        console.log(percentScore);
         //$("#resultsTimedOut").show();
         //$("#resultsTimedOut").html("# of Timed Out = " + timeOutAnswer );
         $("#resultsTwo").show();
