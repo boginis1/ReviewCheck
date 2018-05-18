@@ -68,6 +68,19 @@ padding: 10px;
   box-shadow: 0 10 45 5 #cbcbcb;
 
 }
+#scoreImg {
+    display: none;
+    text-align: center;
+    width: 50%;
+    background-color: #CD853F;
+    margin: 0 auto;
+    width:40%;
+    padding: 10px 10px 10px 10px;
+    border-radius: 70px;
+    border: 2px solid #cbcbcb;
+    box-shadow: 0 10 15 5 #cbcbcb;
+   font-size: 20px;
+}
 #resultsCorrect, #resultsIncorrect, #resultsPercent {
   background-color: #CD853F;
   display:none;

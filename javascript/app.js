@@ -2,7 +2,7 @@ $(document).ready(function() {
     // Handler for .ready() called.
 
     var selection;
-    
+    var percentScore;
 
     var triviaQandA = [{
             "question": "Creating awareness or questioning the status quo is the strategy for which stage of the customer journey?",
@@ -149,7 +149,20 @@ $(document).ready(function() {
             wrongAnswer)
         $("#resultsPercent").show();
         $("#resultsPercent").html("Your score is " + percentScore + "%")
-        console.log(percentScore);
+      // var actorImage = $("<img/>"); //create image tag to add our attribute to
+      //   actorImage.attr( "src", actorImageSrc); //get the actual image
+      //   $("#actorImage").append(actorImage); //add image to the page
+if (percentScore > 70) {
+    var wayToGo = $("<img/>");
+    wayToGo.attr("src", "images/tenorWayToGo.gif")
+    $("#scoreImg").show();
+    $("#scoreImg").append(wayToGo);
+} else {
+   var tryHarder = $("<img/>");
+    tryHarder.attr("src", "images/tenorTryHarder.gif")
+    $("#scoreImg").show();
+    $("#scoreImg").append(tryHarder);
+}
         //$("#resultsTimedOut").show();
         //$("#resultsTimedOut").html("# of Timed Out = " + timeOutAnswer );
         $("#resultsTwo").show();
